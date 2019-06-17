@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E22BF1C22B1EC3C00618077 /* localstring.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E22BF1E22B1EC3C00618077 /* localstring.strings */; };
 		2E9850BB22A8FD9700F945A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9850BA22A8FD9700F945A1 /* AppDelegate.swift */; };
 		2E9850C022A8FD9700F945A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9850BE22A8FD9700F945A1 /* Main.storyboard */; };
 		2E9850C222A8FD9800F945A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E9850C122A8FD9800F945A1 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E22BF1D22B1EC3C00618077 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localstring.strings; sourceTree = "<group>"; };
 		2E9850B722A8FD9700F945A1 /* Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9850BA22A8FD9700F945A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E9850BF22A8FD9700F945A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				2E9850C622A8FD9800F945A1 /* Info.plist */,
 				2E9850D422A8FFD500F945A1 /* StoriesTableViewController.swift */,
 				2E9850D822A912D900F945A1 /* MonthSection.swift */,
+				2E22BF1E22B1EC3C00618077 /* localstring.strings */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E9850C522A8FD9800F945A1 /* LaunchScreen.storyboard in Resources */,
+				2E22BF1C22B1EC3C00618077 /* localstring.strings in Resources */,
 				2E9850C222A8FD9800F945A1 /* Assets.xcassets in Resources */,
 				2E9850C022A8FD9700F945A1 /* Main.storyboard in Resources */,
 			);
@@ -151,6 +155,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2E22BF1E22B1EC3C00618077 /* localstring.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E22BF1D22B1EC3C00618077 /* en */,
+			);
+			name = localstring.strings;
+			sourceTree = "<group>";
+		};
 		2E9850BE22A8FD9700F945A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
