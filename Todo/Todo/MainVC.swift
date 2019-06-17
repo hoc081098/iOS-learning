@@ -10,7 +10,7 @@ import UIKit
 import  RealmSwift
 
 
-class MainViewController: UIViewController {
+class MainVC: UIViewController {
     
     @IBOutlet weak var todoTableView: UITableView!
 
@@ -52,10 +52,16 @@ class MainViewController: UIViewController {
 
 
 // MARK: - TableView Data Source
-extension MainViewController: UITableViewDataSource {
+extension MainVC: UITableViewDataSource {
+    private func toggleItem(_ item: Todo) {
+        item.update(title: item.title, completed: !item.completed)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todo_cell", for: indexPath) as! TodoTableViewCell
-        cell.bind(items[indexPath.row])
+        cell.bind(items[indexPath.row]) { [weak self] item in
+            self?.toggleItem(item)
+        }
         return cell
     }
     
@@ -65,7 +71,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: - TableView Delegate
-extension MainViewController : UITableViewDelegate {
+extension MainVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -82,7 +88,7 @@ extension MainViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let addOrUpdateVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddOrUpdateViewController") as! AddOrUpdateViewController
+        let addOrUpdateVC = self.storyboard!.instantiateViewController(withIdentifier: "AddOrUpdateVC") as! AddOrUpdateVC
         addOrUpdateVC.todo = items[indexPath.row]
         self.navigationController?.pushViewController(addOrUpdateVC, animated: true)
     }

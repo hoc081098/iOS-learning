@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AddOrUpdateViewController: UIViewController {
+class AddOrUpdateVC: UIViewController {
     
     @IBOutlet weak var stackCompleted: UIStackView!
     @IBOutlet weak var titleTextField: UITextField!

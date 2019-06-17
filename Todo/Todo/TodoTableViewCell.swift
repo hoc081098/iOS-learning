@@ -9,26 +9,37 @@
 import UIKit
 
 class TodoTableViewCell: UITableViewCell {
+    private var item: Todo?
+    private var onToggle: ((Todo) -> Void)?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var createdLabel: UILabel!
-    @IBOutlet weak var completedImage: UIImageView!
+    @IBOutlet weak var completedImage: UIButton!
+    
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm, dd/MM/yy"
+        return formatter
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    func bind(_ todo: Todo) {
+    @IBAction func toogleClick(_ sender: Any) {
+        guard let item = self.item else { return }
+        onToggle?(item)
+        print("Toogle")
+    }
+    
+    func bind(_ todo: Todo, onToggle: ((Todo) -> Void)? = nil) {
+        self.item = todo
+        self.onToggle = onToggle
+        
         titleLabel?.text = todo.title
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm, dd/MM/yy"
         createdLabel?.text = "Created: \(dateFormatter.string(from: todo.created))"
-        if todo.completed {
-            completedImage.image = UIImage(named: "icon_checked")
-            print(UIImage(named: "icon_checked"))
-        } else {
-            completedImage.image = nil
-        }
+        completedImage.setImage(
+            UIImage(named: todo.completed ? "ic_checked" : "ic_unchecked"),
+            for: .normal
+        )
     }
 }
