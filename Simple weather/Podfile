@@ -12,4 +12,7 @@ target 'Simple weather' do
     # Pods for testing
   end
 
+  pod 'Alamofire'
+  pod 'MBProgressHUD'
+  
 end
